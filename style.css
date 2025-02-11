@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&family=Afacad+Flux:wght@100..1000&family=Monomaniac+One&family=Playwrite+DE+Grund:wght@100..400&display=swap');
+* {
+    margin: 0;
+    padding:  0;
+}
+body {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, darkred, rgb(129, 31, 31));
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.input {
+    text-align: center;
+    width: 50rem;
+    height: 10rem;
+    margin: 5rem;
+    font-family: "Monomaniac One", serif;
+    font-size: 4rem;
+    color: rgb(98, 80, 80);
+    text-shadow: 0px 0px 2rem white;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/015/034/035/non_2x/green-cucumber-image-of-a-ripe-green-cucumber-green-vegetarian-product-illustration-isolated-on-a-white-background-vector.jpg');
+    background-position: center;
+    background-size: 100;
+    outline: none;
+    border: none;
+    border-radius: 0.3rem;
+    transition: all ease 0.3s;
+}
+.input:focus {
+    transform: translateY(-0.5rem);
+    width: 60rem;
+}
+h1 {
+    font-size: 6rem;
+    font-family: "Monomaniac One", serif;
+}
+.content {
+    margin-top: 10%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}

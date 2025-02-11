@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ZooPickle</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&family=Afacad+Flux:wght@100..1000&family=Monomaniac+One&family=Playwrite+DE+Grund:wght@100..400&display=swap');
+        * {
+            margin: 0;
+            padding:  0;
+        }
+        body {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, darkred, rgb(129, 31, 31));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        iframe {
+            background-image: url('loading.gif');
+            background-size: 100%;
+            background-position: center;
+            width: 100rem;
+            z-index: 2;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+        }
+        
+        h1 {
+            font-size: 6rem;
+            font-family: "Monomaniac One", serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="crosshair" class="crosshair"></div>
+    <div id="particle-container"></div>
+    <header>
+        <h1>ZooPickle</h1>
+    </header>
+    <center>
+        <iframe id="iframe-frame" src="" frameborder="0" width="70%" height="800"></iframe>
+        <br>
+        <button class="fullscreen-btn" id="fullscreen-btn">&#x26F6;</button>
+    </center>
+    <script>
+        const iframe = document.getElementById('iframe-frame');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+        const storedIframeSrc = localStorage.getItem('iframe');
+        if (storedIframeSrc) {
+            iframe.src = storedIframeSrc;
+        } else {
+            iframe.src = '';
+        }
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                iframe.requestFullscreen().catch(err => {
+                    console.error(`Error enabling fullscreen: ${err.message} (${err.name})`);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
